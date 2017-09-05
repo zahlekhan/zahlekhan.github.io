@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Materialize-stepper</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+<link rel='stylesheet prefetch' href='https://rawgit.com/Kinark/Materialize-stepper/master/materialize-stepper.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+	  <style>
+		*{
+		border:1px solid;
+		}
+		</style>
+
+  
+</head>
+
+<body>
+  <!-- 
+Materializecss Stepper v1.1 - Igor Marcossi
+https://github.com/Kinark/Materialize-stepper 
+-->
+<div class="section grey lighten-5">
+   <div class="container">
+      <div class="row">
+         <div class="col l6 m10 s12 offset-l3 offset-m1">
+            <h3 class="light center-align blue-text">Sign up form</h3>
+            <div class="card">
+               <div class="card-content">
+
+                  <ul data-method="GET" class="stepper horizontal" style="height:;">
+                     <li class="step active">
+                        <div class="step-title waves-effect waves-dark">E-mail</div>
+                        <div class="step-content">
+							<form id="personal" method="get">
+							   <div class="row">
+								  <div class = "input-field col s6">
+									 <input id = "name" type = "text" class="check" >
+									 <label for = "name">Your Name</label>
+								  </div>
+							   </div>
+							   <div class="row">
+								  <div class = "input-field col s6">
+									 <input id = "college" type = "text" class="check" >
+									 <label for = "college">Your College</label>
+								  </div>
+							   </div>
+							   <div class="row">
+									 <div class="input-field col s6">
+									 <input id="email" name="email" type="email" class="check" >
+									 <label for="email">Your e-mail</label>
+								  </div>
+							   </div>
+							   <div class="row">
+								  <div class="input-field col s6">
+									 <input id="password" type="password" class="check" >
+									 <label for="password">Your password</label>
+								  </div>
+							   </div>
+							   <div class="row">
+								  <div class="input-field col s6">
+									 <input id="password_confirm" type="password" class="check" >
+									 <label for="password_confirm">Repeat Password</label>
+								  </div>
+							   </div>
+							   <input type="submit" />
+							</form>
+                           
+                           <div class="step-actions">
+                              <button class="waves-effect waves-dark btn next-step" data-feedback="anyThing">Continue</button>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="step">
+                        <div class="step-title waves-effect waves-dark">Step 2</div>
+                        <div class="step-content">
+                        	<div class="row">
+								<div class="input-field col s6">
+									<select class="browser-default">
+										<option value="" disabled selected>Year Select</option>
+										<option value="1">I</option>
+										<option value="2">II</option>
+										<option value="3">III</option>
+										<option value="4">IV</option>
+										<option value="5">V</option>
+									</select>
+									<label></label>
+								</div>
+                           </div>
+						   <div class="row">
+								<div class="input-field col s6">
+									<input id="mobile" type="tel" class="validate" >
+									<label for="mobile">Mobile Number</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s6">
+									<input id="WA" type="tel" class="validate" >
+									<label for="WA">WhatsApp Number</label>
+								</div>
+								<div class="input-field col s6">
+									<input type="checkbox" id="sameNum" />
+									<label for="sameNum">Check if both are same</label>
+								</div>
+						   <div class="row">
+								<div class="input-field col s12">
+								<textarea id="Address" class="materialize-textarea"></textarea>
+								<label for="Address">Address</label>
+								</div>
+							</div>
+							<div class="row">
+                              <div class = "input-field col s6">
+                     			 <input id = "Pincode" type = "text" >
+                     			 <label for = "Pincode">Pincode</label>
+                  			  </div>
+                  		   </div>
+                           <div class="step-actions">
+                              <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+                              <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="step">
+                        <div class="step-title waves-effect waves-dark">Callback</div>
+                        <div class="step-content">
+							 <div class="row">
+								<div class="input-field col s12">
+								<textarea id="choose" placeholder="Why should we choose you? " class="materialize-textarea"></textarea>
+								
+								</div>
+							</div>
+							 <div class="row">
+								<div class="input-field col s12">
+								<textarea placeholder="Your past experience as Campus Ambassador and organizing events in about 150 words" id="Address" class="materialize-textarea"></textarea>
+								
+								</div>
+							</div>
+                          
+                           <div class="step-actions">
+                              <button class="waves-effect waves-dark btn next-step" data-feedback="anyThing">ENDLESS CALLBACK!</button>
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.js'></script>
+<script src='https://rawgit.com/Kinark/Materialize-stepper/master/materialize-stepper.min.js'></script>
+
+
+    <script src="js/index.js"></script>
+
+
+</body>
+</html>
