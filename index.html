@@ -7,7 +7,7 @@
   
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css'>
 <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-<link rel='stylesheet prefetch' href='https://rawgit.com/Kinark/Materialize-stepper/master/materialize-stepper.min.css'>
+<link rel='stylesheet prefetch' href='css/stepper.css'>
 
       <link rel="stylesheet" href="css/style.css">
 	  <style>
@@ -19,12 +19,12 @@
   
 </head>
 
-<body>
+<body class="grey lighten-5">
   <!-- 
 Materializecss Stepper v1.1 - Igor Marcossi
 https://github.com/Kinark/Materialize-stepper 
 -->
-<div class="section grey lighten-5">
+<div class="section grey lighten-5" style="height:100vh">
    <div class="container">
       <div class="row">
          <div class="col l6 m10 s12 offset-l3 offset-m1">
@@ -32,11 +32,11 @@ https://github.com/Kinark/Materialize-stepper
             <div class="card">
                <div class="card-content">
 
-                  <ul data-method="GET" class="stepper horizontal" style="height:;">
+                  <ul data-method="GET" class="stepper horizontal" style="height:">
                      <li class="step active">
                         <div class="step-title waves-effect waves-dark">E-mail</div>
                         <div class="step-content">
-							<form id="personal" method="get">
+							
 							   <div class="row">
 								  <div class = "input-field col s6">
 									 <input id = "name" type = "text" class="check" >
@@ -67,8 +67,8 @@ https://github.com/Kinark/Materialize-stepper
 									 <label for="password_confirm">Repeat Password</label>
 								  </div>
 							   </div>
-							   <input type="submit" />
-							</form>
+							   
+							
                            
                            <div class="step-actions">
                               <button class="waves-effect waves-dark btn next-step" data-feedback="anyThing">Continue</button>
