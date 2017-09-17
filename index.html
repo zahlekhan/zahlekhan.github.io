@@ -11,9 +11,10 @@
 
       <link rel="stylesheet" href="css/style.css">
 	  <style>
-		*{
-		border:1px solid;
-		}
+		
+		
+		
+		
 		</style>
 
   
@@ -31,39 +32,43 @@ https://github.com/Kinark/Materialize-stepper
             <h3 class="light center-align blue-text">Sign up form</h3>
             <div class="card">
                <div class="card-content">
+			   <form id="test" action="" method="">
+			   
 
-                  <ul data-method="GET" class="stepper horizontal" style="height:650px">
+                  <ul  class=" stepper horizontal" style="height:690px">
                      <li class="step active">
                         <div class="step-title waves-effect waves-dark">E-mail</div>
                         <div class="step-content">
 							
+							
 							   <div class="row">
+							   
 								  <div class = "input-field col s6">
-									 <input id = "name" type = "text" class="check" >
+									 <input id = "name" name="name" type = "text"  >
 									 <label for = "name">Your Name</label>
 								  </div>
 							   </div>
 							   <div class="row">
 								  <div class = "input-field col s6">
-									 <input id = "college" type = "text" class="check" >
+									 <input id = "college" type = "text" name="college" >
 									 <label for = "college">Your College</label>
 								  </div>
 							   </div>
 							   <div class="row">
 									 <div class="input-field col s6">
-									 <input id="email" name="email" type="email" class="check" >
+									 <input id="email" name="email" type="email"  >
 									 <label for="email">Your e-mail</label>
 								  </div>
 							   </div>
 							   <div class="row">
 								  <div class="input-field col s6">
-									 <input id="password" type="password" class="check" >
+									 <input id="password" type="password" name="password">
 									 <label for="password">Your password</label>
 								  </div>
 							   </div>
 							   <div class="row">
 								  <div class="input-field col s6">
-									 <input id="password_confirm" type="password" class="check" >
+									 <input id="password_confirm" type="password" name="password_confirm" >
 									 <label for="password_confirm">Repeat Password</label>
 								  </div>
 							   </div>
@@ -71,7 +76,7 @@ https://github.com/Kinark/Materialize-stepper
 							
                            
                            <div class="step-actions">
-                              <button class="waves-effect waves-dark btn next-step" data-feedback="anyThing">Continue</button>
+                              <button id="btn1" class="waves-effect waves-dark btn next-step" data-feedback="anyThing">Continue</button>
                            </div>
                         </div>
                      </li>
@@ -79,8 +84,10 @@ https://github.com/Kinark/Materialize-stepper
                         <div class="step-title waves-effect waves-dark">Step 2</div>
                         <div class="step-content">
                         	<div class="row">
+							<div class="row">
+							
 								<div class="input-field col s6">
-									<select class="browser-default">
+									<select class="browser-default" required>
 										<option value="" disabled selected>Year Select</option>
 										<option value="1">I</option>
 										<option value="2">II</option>
@@ -90,31 +97,34 @@ https://github.com/Kinark/Materialize-stepper
 									</select>
 									<label></label>
 								</div>
-                           </div>
-						   <div class="row">
+								</div>
+                           <div class="row">
 								<div class="input-field col s6">
-									<input id="mobile" type="tel" class="validate" >
+									<input id="mobile" type="tel" name="mobile"  >
 									<label for="mobile">Mobile Number</label>
 								</div>
 							</div>
+								
+							
 							<div class="row">
 								<div class="input-field col s6">
-									<input id="WA" type="tel" class="validate" >
+									<input id="WA" type="tel" placeholder="99999" name="WA" >
 									<label for="WA">WhatsApp Number</label>
 								</div>
 								<div class="input-field col s6">
 									<input type="checkbox" id="sameNum" />
 									<label for="sameNum">Check if both are same</label>
 								</div>
+								</div>
 						   <div class="row">
 								<div class="input-field col s12">
-								<textarea id="Address" class="materialize-textarea"></textarea>
+								<textarea id="Address" class="materialize-textarea" name="Address"></textarea>
 								<label for="Address">Address</label>
 								</div>
 							</div>
 							<div class="row">
                               <div class = "input-field col s6">
-                     			 <input id = "Pincode" type = "text" >
+                     			 <input id = "Pincode" type = "text" name="pincode" >
                      			 <label for = "Pincode">Pincode</label>
                   			  </div>
                   		   </div>
@@ -129,13 +139,13 @@ https://github.com/Kinark/Materialize-stepper
                         <div class="step-content">
 							 <div class="row">
 								<div class="input-field col s12">
-								<textarea id="choose" placeholder="Why should we choose you? " class="materialize-textarea"></textarea>
+								<textarea id="choose" placeholder="Why should we choose you? " class="materialize-textarea" name="why"></textarea>
 								
 								</div>
 							</div>
 							 <div class="row">
 								<div class="input-field col s12">
-								<textarea placeholder="Your past experience as Campus Ambassador and organizing events in about 150 words" id="Address" class="materialize-textarea"></textarea>
+								<textarea placeholder="Your past experience as Campus Ambassador and organizing events in about 150 words" id="Address" class="materialize-textarea" name="exp"></textarea>
 								
 								</div>
 							</div>
@@ -146,6 +156,7 @@ https://github.com/Kinark/Materialize-stepper
                         </div>
                      </li>
                   </ul>
+				  </form>
 
                </div>
             </div>
@@ -153,10 +164,10 @@ https://github.com/Kinark/Materialize-stepper
       </div>
    </div>
 </div>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.js'></script>
-<script src='https://rawgit.com/Kinark/Materialize-stepper/master/materialize-stepper.min.js'></script>
+  <script src='js/jquery.js'></script>
+<script src='js/materialize.js'></script>
+<script src='js/validate.js'></script>
+<script src='js/stepper.js'></script>
 
 
     <script src="js/index.js"></script>
