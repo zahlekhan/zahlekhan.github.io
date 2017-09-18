@@ -2,176 +2,199 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Materialize-stepper</title>
+  <title>ca login</title>
   
   
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css'>
 <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 <link rel='stylesheet prefetch' href='css/stepper.css'>
+<link href="css/select.css" rel="stylesheet" />
 
       <link rel="stylesheet" href="css/style.css">
-	  <style>
-		
-		
-		
-		
-		</style>
 
   
 </head>
 
-<body class="grey lighten-5">
-  <!-- 
-Materializecss Stepper v1.1 - Igor Marcossi
-https://github.com/Kinark/Materialize-stepper 
--->
-<div class="section grey lighten-5" style="height:100vh">
+<body>
+  
+<div class="section grey lighten-5">
    <div class="container">
-      <div class="row">
-         <div class="col l6 m10 s12 offset-l3 offset-m1">
-            <h3 class="light center-align blue-text">Sign up form</h3>
+      
+            <h3 class="light center-align blue-text">WELCOME TO TECHNEX CA PORTAL </h3>
             <div class="card">
                <div class="card-content">
-			   <form id="test" action="" method="">
-			   
+ <form id="formValidate" method="POST" action="insertdata.php" >
+	<ul class="stepper horizontal" style="min-height:620px">
+   <li class="step active">
+      <div class="step-title waves-effect">Who you are:</div>
+      <div class="step-content">
+				
+				
+  <div class="row">
+    
+      
+				
+        <div class="input-field col s12 m6"><i class="material-icons prefix">account_circle</i>
+          <input  id="first_name" name="first_name"  type="text" class="validate" >
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      
+			<div class="input-field col s12 " style="text-align:center">
+				<i class="material-icons prefix">people</i>
+    <select class="js-example-basic-single" style="width: 50% " name="state">
+      <option value="" disabled selected>Choose your College</option>
+      <option value="IIT">IIT (BHU) VARANASI</option>
+      <option value="IT">IIT BOMBAY</option>
+      <option value="I">IIT KANPUR</option>
+    </select>
+    
+    
+    
+  </div>
+      
+        <div class="input-field col s12 ">
+         <i class="material-icons prefix">email</i> <input id="email" name="email" type="email" class="validate" onkeyup="checkemail();">
+          <label for="email">Email</label>
+					<span id="email_status"></span>
+ <br>
+        </div>
+      
+      
+        <div class="input-field col s12 ">
+         <i class="material-icons prefix">lock</i> <input id="password" name="password" type="password" class="validate" >
+          <label for="password">Password</label>
+        </div>
+			
+     
+        <div class="input-field col s12 ">
+         <i class="material-icons prefix">lock_outline</i> <input id="repassword" type="password" name="repassword" class="validate">
+          <label for="repassword">Repeat Password</label>
+        </div>
+			
+    
+		
+		Already registered!<a href="#">Login</a>
+  </div>
+				
+         <div class="step-actions">
+            <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
+         </div>
+      </div>
+   </li>
+   <li class="step">
+      <div class="step-title waves-effect">set up your account:</div>
+      <div class="step-content">
+        
+             
+				<div class="row">
+          
+				<div class="input-field col s12 m6"><i class="material-icons prefix">phone</i>
+          <input  id="mobile_no" name="mobile_no" type="text" onkeyup="fun(this.form);" class="validate"required>
+          <label for="mobile_no">MOBILE NO.. in 10 digits<br></label>
+        </div>
+							
+								  
+      <input  type="checkbox" name="phone"id="test1" onclick="fun(this.form)"/>
+										
+      <label for="test1">Check this box if Whatsapp number and Contact Number are the same
 
-                  <ul  class=" stepper horizontal" style="height:690px">
-                     <li class="step active">
-                        <div class="step-title waves-effect waves-dark">E-mail</div>
-                        <div class="step-content">
-							
-							
-							   <div class="row">
-							   
-								  <div class = "input-field col s6">
-									 <input id = "name" name="name" type = "text"  >
-									 <label for = "name">Your Name</label>
-								  </div>
-							   </div>
-							   <div class="row">
-								  <div class = "input-field col s6">
-									 <input id = "college" type = "text" name="college" >
-									 <label for = "college">Your College</label>
-								  </div>
-							   </div>
-							   <div class="row">
-									 <div class="input-field col s6">
-									 <input id="email" name="email" type="email"  >
-									 <label for="email">Your e-mail</label>
-								  </div>
-							   </div>
-							   <div class="row">
-								  <div class="input-field col s6">
-									 <input id="password" type="password" name="password">
-									 <label for="password">Your password</label>
-								  </div>
-							   </div>
-							   <div class="row">
-								  <div class="input-field col s6">
-									 <input id="password_confirm" type="password" name="password_confirm" >
-									 <label for="password_confirm">Repeat Password</label>
-								  </div>
-							   </div>
-							   
-							
-                           
-                           <div class="step-actions">
-                              <button id="btn1" class="waves-effect waves-dark btn next-step" data-feedback="anyThing">Continue</button>
-                           </div>
-                        </div>
-                     </li>
-                     <li class="step">
-                        <div class="step-title waves-effect waves-dark">Step 2</div>
-                        <div class="step-content">
-                        	<div class="row">
-							<div class="row">
-							
-								<div class="input-field col s6">
-									<select class="browser-default" required>
-										<option value="" disabled selected>Year Select</option>
-										<option value="1">I</option>
-										<option value="2">II</option>
-										<option value="3">III</option>
-										<option value="4">IV</option>
-										<option value="5">V</option>
-									</select>
-									<label></label>
-								</div>
-								</div>
-                           <div class="row">
-								<div class="input-field col s6">
-									<input id="mobile" type="tel" name="mobile"  >
-									<label for="mobile">Mobile Number</label>
-								</div>
-							</div>
-								
-							
-							<div class="row">
-								<div class="input-field col s6">
-									<input id="WA" type="tel" placeholder="99999" name="WA" >
-									<label for="WA">WhatsApp Number</label>
-								</div>
-								<div class="input-field col s6">
-									<input type="checkbox" id="sameNum" />
-									<label for="sameNum">Check if both are same</label>
-								</div>
-								</div>
-						   <div class="row">
-								<div class="input-field col s12">
-								<textarea id="Address" class="materialize-textarea" name="Address"></textarea>
-								<label for="Address">Address</label>
-								</div>
-							</div>
-							<div class="row">
-                              <div class = "input-field col s6">
-                     			 <input id = "Pincode" type = "text" name="pincode" >
-                     			 <label for = "Pincode">Pincode</label>
-                  			  </div>
-                  		   </div>
-                           <div class="step-actions">
-                              <button class="waves-effect waves-dark btn next-step">CONTINUE</button>
-                              <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
-                           </div>
-                        </div>
-                     </li>
-                     <li class="step">
-                        <div class="step-title waves-effect waves-dark">Callback</div>
-                        <div class="step-content">
-							 <div class="row">
-								<div class="input-field col s12">
-								<textarea id="choose" placeholder="Why should we choose you? " class="materialize-textarea" name="why"></textarea>
-								
-								</div>
-							</div>
-							 <div class="row">
-								<div class="input-field col s12">
-								<textarea placeholder="Your past experience as Campus Ambassador and organizing events in about 150 words" id="Address" class="materialize-textarea" name="exp"></textarea>
-								
-								</div>
-							</div>
-                          
-                           <div class="step-actions">
-                              <button class="waves-effect waves-dark btn next-step" data-feedback="anyThing">ENDLESS CALLBACK!</button>
-                           </div>
-                        </div>
-                     </li>
-                  </ul>
-				  </form>
 
+</label>
+					
+				
+				<div class="input-field col s12 m6"><i class="material-icons prefix">phone</i>
+          <input id="wmobile_no" name="wmobile_no" type="text" class="validate">
+          <label for="wmobile_no">whatsapp no..<br></label>
+        </div>
+							
+				  <div class="input-field col s12" style="text-align: center;">
+    <select name="year" class="validate year" style="width: 30%" >
+      <option value="" disabled selected>--select your year--</option>
+      <option value="1">first</option>
+      <option value="2">second</option>
+      <option value="3">third</option>
+			<option value="4">fourth</option>
+			<option value="5">fifth</option>
+    </select>
+    <label></label>
+  </div>			
+						 
+      
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea id="icon_prefix2" name="address" class="materialize-textarea"></textarea>
+          <label for="icon_prefix2">Postal Address..</label>
+        </div>
+      
+    
+				<div class="input-field col s12 m6">
+          <input id="pincode" name="pincode" type="text" class="validate"required>
+          <label for="pincode">Pincode..</label>
+        </div>
+					 
+         </div>
+					 
+         <div class="step-actions">
+					 
+					  <div> <button class="waves-effect waves-dark btn next-step">CONTINUE</button></div>
+         
+				<div> 
+					<button class="waves-effect waves-dark btn-flat previous-step">BACK</button></div>
+					</div>
+      </div>
+   </li>
+   <li class="step">
+      <div class="step-title waves-effect">About you:</div>
+      <div class="step-content">
+         
+      <div class="row">
+				
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea placeholder="Why should we hire you?"id="icon_prefix3" name="test1"class="materialize-textarea"></textarea>
+          
+        </div>
+      </div>
+    	
+				
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea id="icon_prefix4" name="test2" placeholder="Your past experience as Campus Ambassdor and orginizing events in about 150 words"class="materialize-textarea"></textarea>
+          
+        </div>
+      </div>
+    
+				
+         <div class="step-actions">
+					 <div><button class="waves-effect waves-dark btn" type="submit">SUBMIT</button></div>
+        <div>   <button class="waves-effect waves-dark btn-flat previous-step ">BACK</button></div>  
+					
+         </div>
+      </div>
+   </li>
+</ul>
+								 </form>
+								 
                </div>
             </div>
          </div>
       </div>
-   </div>
-</div>
-  <script src='js/jquery.js'></script>
+  
+
+    <script  src="js/index.js"></script>
+
+<script src='js/jquery.js'></script>
 <script src='js/materialize.js'></script>
 <script src='js/validate.js'></script>
 <script src='js/stepper.js'></script>
-
-
-    <script src="js/index.js"></script>
-
+<script src='js/jquery.formatter.min.js'></script>
+<script src="js/select.js"></script>
+    <script  src="js/index.js"></script>
 
 </body>
 </html>
