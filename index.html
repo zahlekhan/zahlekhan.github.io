@@ -35,7 +35,7 @@
 		position: fixed;
 		bottom: 0;
 		width: 100vw;
-		max-height: 65vh;		
+		max-height: 85vh;		
 		z-index: 999;
 
 		
@@ -50,6 +50,7 @@
 		border-top-right-radius: 5px;
 		border-bottom: 0px;
 		background-color: #222;
+		color: white;
 
 	}
 
@@ -65,7 +66,7 @@
 		-webkit-overflow-scrolling: touch;
 		color: white;
 		background-color: #2e2e2e;
-		margin-bottom: 3%;
+		
 
 
 
@@ -90,6 +91,17 @@
 		width: 100px;
 	}
 
+	.labelClass{
+		white-space:nowrap;
+		text-shadow: 0 0 0.1em black, 0 0 0.1em black,
+		0 0 0.1em black,0 0 0.1em black,0 0 0.1em;
+		color: black;
+	}
+
+	#locate{
+		background-color: white;
+	}
+
 
 
 	
@@ -105,35 +117,14 @@
 
 	
 	<div class="container" >
-		<div id="arrow" onclick="toggle()" >>>>></div>
+		<div id="arrow" onclick="toggle()" style="display: inline-block; width: 65%">Click Here</div>
+		<div id="locate" style="display: inline-block;" style="width: 30%;" onclick="locate()">Locate</div>
 		<div id="tab">
-			<ul class="events ongoing">
+			<ul class="events" id="ongoing" style="margin-bottom: 3%;">
 				<h3>Ongoing Events</h3>
-				<li class="event">
-					<img src="test.jpg">
-					<p>Info</p>
-				</li>
-				<li class="event">
-					<img src="test.jpg">
-					<p>Info</p>
-				</li>
-				<li class="event">
-					<img src="test.jpg">
-					<p>Info</p>
-				</li>
-				<li class="event">
-					<img src="test.jpg">
-					<p>Info</p>
-				</li>
-				<li class="event">
-					<img src="test.jpg">
-					<p>Info</p>
-				</li>
-
-			</ul><!-- 
-
-			
-			 --><ul class="events upcoming">
+				
+			</ul>
+			<ul class="events" id="upcoming">
 				<h3>Upcoming Events</h3>
 				<li class="event">
 					<img src="test.jpg">
@@ -159,11 +150,11 @@
 		</div>
 	</div>
 
-	
 
 
 
-	
+
+
 
 
 
@@ -171,32 +162,15 @@
 	<script type="text/javascript">
 		var mymap = L.map('mapid').setView([25.2677, 82.9913], 16);
 		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-			
+
 			maxZoom: 18,
 			id: 'mapbox.streets',
 			accessToken: 'pk.eyJ1IjoiemFobGVraGFuIiwiYSI6ImNqZDc2cTJrazVjYjcycW8xY2U1cnc2eHEifQ.Wv1SDb-6fRY1gtkMVH5yYA'
 		}).addTo(mymap);
 
-		var marker = L.marker([51.5, -0.09]).addTo(mymap);
 
-		var circle = L.circle([51.508, -0.11], {
-			color: 'red',
-			fillColor: '#f03',
-			fillOpacity: 0.5,
-			radius: 500
-		}).addTo(mymap);
 
-		var polygon = L.polygon([
-			[51.509, -0.08],
-			[51.503, -0.06],
-			[51.51, -0.047]
-			]).addTo(mymap);
 
-		marker.bindPopup("<b>Hello world!</b><br>I am a popup.");
-		circle.bindPopup("I am a circle.");
-		polygon.bindPopup("I am a polygon.");
-
-		var popup = L.popup();
 
 		function onMapClick(e) {
 			popup
@@ -207,25 +181,191 @@
 
 		mymap.on('click', onMapClick);
 
+	// KNOWN LOCATIONS (Important places,Hostels)
+
+	var createLabelIcon = function(labelClass,labelText){
+		return L.divIcon({ 
+			className: labelClass,
+			html: labelText
+		})
+	}
+
+
+	var sleep = L.icon({
+		iconUrl: 'sleep.png',
+		iconSize: [65, 65],
+		iconAnchor: [22, 94],
+		popupAnchor: [-3, -76],
+
+	});
+
+	var tlogo = L.icon({
+		iconUrl: 'favicon-32x32.png',
+		iconSize: [65, 65],
+		iconAnchor: [22, 94],
+		popupAnchor: [-3, -76],
+
+	});
+
+	
 
 
 
 
+	var time_ind = [{
+		"type": "Hostel",
+		"name": "Sarrya",
+		"loc": [25.262329, 82.983963],
+		"popup": "This is where the Rockies play!",
+		"dir":""
+	},
+	{
+		"type": "Hostel",
+		"name": "Bose",
+		"loc": [25.292329, 82.903963],
+		"popup": "This is where the Rockies play!",
+		"dir":""
+	}];
 
-		// OTHER SCRIPTS BEGIN HERE
+
+	for(i=0;i<time_ind.length;i++){
+
+		L.marker(time_ind[i].loc, {icon: sleep}).addTo(mymap);
+		L.marker(time_ind[i].loc, {icon:createLabelIcon("Label", time_ind[i].name)}).addTo(mymap);
+	}
 
 
-		function toggle() {
-			var x = document.getElementById("arrow");
-			var y =  document.getElementById("tab");
-			if (y.style.display === "none") {
-				y.style.display = "block";
-			} else {
-				y.style.display = "none";
-			}
+
+
+//Time dependent Events
+function eventCenter(){
+	loc=this.getAttribute('data');
+	loc=loc.split(",");
+	mymap.panTo(loc,17,{ animation: true });
+}
+
+
+var time_d=[{
+	"type": "Event",
+	"name": "pixelate",
+	"loc" : [25.26,83],
+	"popup": "<img src='test.jpg'><p>Info</p>",
+	"dir": "",
+	"date": 4,
+	"ongoing" : false,
+	"upcoming" :false,
+	"s_time": 8 ,
+	"e_time": 23
+},
+
+
+
+]
+
+
+//toggle events according to time
+var d=new Date();
+var node = document.createElement("li");
+
+
+
+for(i=0;i<time_d.length;i++){
+	if(time_d[i].date==d.getDate()){
+
+		if(time_d[i].s_time>d.getHours()){
+			
+			time_d[i].upcoming=true;
 		}
 
+		if (time_d[i].s_time<=d.getHours() && time_d[i].e_time>=d.getHours()){
 
-	</script>
+			time_d[i].upcoming=false;
+			time_d[i].ongoing=true;
+		}
+
+		if(time_d[i].e_time<d.getHours()){
+			time_d[i].upcoming=false;
+			time_d[i].ongoing=false;
+		}
+	}
+
+	//add to events tab
+
+	if(time_d[i].ongoing){
+
+		
+		node.innerHTML=time_d[i].popup;
+		node.setAttribute('data',time_d[i].loc);
+		node.className="event";
+		node.addEventListener("click", eventCenter);
+		document.getElementById("ongoing").appendChild(node); 
+
+
+	}
+
+	if(time_d[i].upcoming){
+
+		node.innerHTML=time_d[i].popup;
+		node.setAttribute('data',time_d[i].loc);
+		node.className="event";
+		node.addEventListener("click", eventCenter);
+		document.getElementById("upcoming").appendChild(node); 
+	}
+}
+
+for(i=0;i<time_d.length;i++){
+	
+	L.marker(time_d[i].loc, {icon: tlogo}).addTo(mymap);
+	L.marker(time_d[i].loc, {icon:createLabelIcon("Label", time_d[i].name)}).addTo(mymap);
+}
+
+
+//Locate user
+
+function locate(){
+	mymap.locate({setView: true, maxZoom: 16});
+};
+
+mymap.on('locationfound', onLocationFound);
+function onLocationFound(e) {
+	console.log(e); 
+    // e.heading will contain the user's heading (in degrees) if it's available, and if not it will be NaN. This would allow you to point a marker in the same direction the user is pointed. 
+    L.marker(e.latlng).addTo(mymap);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// OTHER SCRIPTS BEGIN HERE
+
+function toggle() {
+	var x = document.getElementById("arrow");
+	var y =  document.getElementById("tab");
+	if (y.style.display === "none") {
+		y.style.display = "block";
+	} else {
+		y.style.display = "none";
+	}
+}
+
+
+
+
+
+
+</script>
 </body>
 </html>
